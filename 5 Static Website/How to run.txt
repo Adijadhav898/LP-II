@@ -1,0 +1,6 @@
+1. Create Terminal in VS Code
+2. Run npm init
+3. Press Enter Do not config any information.
+4. Enter Command node index.js
+5. You will see Server Running On 8001
+6. Go to Chrome and type localhost:8001

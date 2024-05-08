@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Registration Form</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS for the registration form */
+    body {
+      background-image:url("Patient.jpg");
+      font-family: Times New Roman;
+      color:black;
+      backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+    }
+
+    h2 {
+      text-align: center;
+      color: black;
+    }
+
+    label {
+      font-weight: bold;
+      color:black;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    select,
+    textarea,
+    input[type="tel"] {
+      width: calc(50% - 5px); /* Adjust the width to fit two inputs side by side */
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    .form-check-label {
+      font-weight: normal;
+    }
+
+    button[type="submit"] {
+      background-color: green;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: lightgreen;
+    }
+
+    .medium-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .form-group label {
+      width: calc(50% - 5px); /* Adjust the width to fit two labels side by side */
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group input[type="email"],
+    .form-group select,
+    .form-group textarea,
+    .form-group input[type="tel"] {
+      width: 100%; /* Occupy full width */
+    }
+  </style>
+</head>
+<body>
+
+<div class="medium-container">
+  <h2><b>Patient Registration Form</b></h2>
+  <form id="patientForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+      <label for="age">Age:</label>
+      <input type="number" class="form-control" id="age" name="age" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email" required>
+      <label for="bloodGroup">Blood Group:</label>
+      <select class="form-control" id="bloodGroup" name="bloodGroup" required>
+        <option value="">Select Blood Group</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="address">Address:</label>
+      <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" required>
+      <label for="gender">Gender:</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" id="genderMale" value="Male" required>
+        <label class="form-check-label" for="genderMale">Male</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" id="genderFemale" value="Female" required>
+        <label class="form-check-label" for="genderFemale">Female</label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#patientForm').submit(function(event){
+      event.preventDefault();
+      var formData = {
+        name: $('#name').val(),
+        age: $('#age').val(),
+        email: $('#email').val(),
+        bloodGroup: $('#bloodGroup').val(),
+        address: $('#address').val(),
+        phoneNumber: $('#phoneNumber').val(),
+        gender: $('input[name=gender]:checked').val()
+      };
+
+      // Store data in local storage
+      localStorage.setItem('patientData', JSON.stringify(formData));
+
+      // Redirect to another page
+      window.location.href = 'display.html';
+    });
+  });
+</script>
+
+</body>
+</html>

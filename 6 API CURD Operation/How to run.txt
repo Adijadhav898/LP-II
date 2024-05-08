@@ -1,0 +1,26 @@
+1. Create Terminal in VS Code
+2. Run npm init
+3. Press Enter Do not config any information.
+4. Add following in package.json:
+
+{
+  "name": "your-project-name",
+  "version": "1.0.0",
+  "description": "Description of your project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "keyword1",
+    "keyword2"
+  ],
+  "author": "Your Name",
+  "license": "ISC"
+}
+
+
+5. Open mongosh and type mongo and establish connection. 
+6. Enter Command node index.js you will see Connection Established.
+7. Go to POST man and Perform CURD Operation

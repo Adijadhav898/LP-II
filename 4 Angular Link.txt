@@ -1,0 +1,10 @@
+Github Link : https://github.com/Sarthak2064/WAD-Asgn
+
+Steps to run:
+1. Download zip file
+2. cd project-folder-name
+3. Run npm install -g @angular/cli (On Command Prompt)
+4. Run npm init (On Command Prompt)
+5. Run ng serve (On Command Prompt)
+
+Note : Delete the Angular App(Empty Folder) extra folder Inside the project.

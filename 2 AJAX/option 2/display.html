@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submitted Data</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS for the submitted data */
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      margin-top: 50px;
+    }
+    h2 {
+      text-align: center;
+      color: #007bff;
+    }
+    #displayInfo {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+    }
+    h3 {
+      color: #007bff;
+    }
+    p {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Submitted Data</h2>
+  <div id="displayInfo"></div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    var storedData = JSON.parse(localStorage.getItem('patientData'));
+    $('#displayInfo').html(`
+      <h3>Name: ${storedData.name}</h3>
+      <p>Age: ${storedData.age}</p>
+      <p>Email: ${storedData.email}</p>
+      <p>Blood Group: ${storedData.bloodGroup}</p>
+      <p>Address: ${storedData.address}</p>
+      <p>Phone Number: ${storedData.phoneNumber}</p>
+      <p>Gender: ${storedData.gender}</p>
+      <p>Valid Blood Groups: A+, A-, B+, B-, AB+, AB-, O+, O-</p>
+    `);
+  });
+</script>
+
+</body>
+</html>
